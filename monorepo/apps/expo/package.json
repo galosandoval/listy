@@ -5,6 +5,7 @@
   "main": "expo-router/entry",
   "scripts": {
     "clean": "git clean -xdf .expo .turbo node_modules",
+    "generate": "prisma generate --schema ../../packages/db/prisma/schema.prisma",
     "dev": "expo start",
     "dev:android": "expo start --android",
     "dev:ios": "expo start --ios",
@@ -16,6 +17,7 @@
   },
   "dependencies": {
     "@expo/metro-config": "^0.17.6",
+    "@prisma/client": "^5.12.0",
     "@shopify/flash-list": "1.6.3",
     "@tanstack/react-query": "^5.28.6",
     "@trpc/client": "11.0.0-next.320",
@@ -64,5 +66,8 @@
       "expo-plugins/**"
     ]
   },
-  "prettier": "@acme/prettier-config"
+  "prettier": "@acme/prettier-config",
+  "prisma": {
+    "schema": "./custom-path-to-schema/schema.prisma"
+  }
 }

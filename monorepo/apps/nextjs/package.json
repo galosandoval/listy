@@ -4,8 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "pnpm with-env next build",
+    "build": "pnpm with-env next build && pnpm generate",
     "clean": "git clean -xdf .next .turbo node_modules",
+    "generate": "prisma generate --schema ../../packages/db/prisma/schema.prisma",
     "dev": "pnpm with-env next dev",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "dotenv -v SKIP_ENV_VALIDATION=1 next lint",
@@ -19,6 +20,7 @@
     "@acme/db": "workspace:*",
     "@acme/ui": "workspace:*",
     "@acme/validators": "workspace:*",
+    "@prisma/client": "^5.12.0",
     "@t3-oss/env-nextjs": "^0.9.2",
     "@tanstack/react-query": "^5.28.6",
     "@trpc/client": "11.0.0-next.320",
@@ -54,5 +56,8 @@
       "@acme/eslint-config/react"
     ]
   },
-  "prettier": "@acme/prettier-config"
+  "prettier": "@acme/prettier-config",
+  "prisma": {
+    "schema": "../../packages/db/prisma/schema.prisma"
+  }
 }
